@@ -84,7 +84,7 @@
       }
 
       * {
-        font-family: "Arial";
+        font-family: 'Arial';
       }
     </style>
   </head>
@@ -96,17 +96,17 @@
       <div id="naranja" class="color naranja left" data-color="naranja"></div>
       <div id="verde" class="color verde right" data-color="verde"></div>
       <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">
-        Empezar a jugar!
+        Start Playing!
       </button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>
-      const celeste = document.getElementById("celeste");
-      const violeta = document.getElementById("violeta");
-      const naranja = document.getElementById("naranja");
-      const verde = document.getElementById("verde");
-      const btnEmpezar = document.getElementById("btnEmpezar");
-      const LAST_LEVEL = 10;
+      const celeste = document.getElementById('celeste');
+      const violeta = document.getElementById('violeta');
+      const naranja = document.getElementById('naranja');
+      const verde = document.getElementById('verde');
+      const btnEmpezar = document.getElementById('btnEmpezar');
+      const LAST_LEVEL = 4;
 
       class Juego {
         constructor() {
@@ -132,10 +132,10 @@
         }
 
         toggleBtnStart() {
-          if (btnEmpezar.classList.contains("hide")) {
-            btnEmpezar.classList.remove("hide");
+          if (btnEmpezar.classList.contains('hide')) {
+            btnEmpezar.classList.remove('hide');
           } else {
-            btnEmpezar.classList.add("hide");
+            btnEmpezar.classList.add('hide');
           }
         }
 
@@ -153,25 +153,25 @@
         numToColor(num) {
           switch (num) {
             case 0:
-              return "celeste";
+              return 'celeste';
             case 1:
-              return "violeta";
+              return 'violeta';
             case 2:
-              return "naranja";
+              return 'naranja';
             case 3:
-              return "verde";
+              return 'verde';
           }
         }
 
         colorToNum(color) {
           switch (color) {
-            case "celeste":
+            case 'celeste':
               return 0;
-            case "violeta":
+            case 'violeta':
               return 1;
-            case "naranja":
+            case 'naranja':
               return 2;
-            case "verde":
+            case 'verde':
               return 3;
           }
         }
@@ -184,25 +184,25 @@
           }
         }
         lightUpColor(color) {
-          this.colors[color].classList.add("light");
+          this.colors[color].classList.add('light');
           setTimeout(() => this.lightOff(color), 350);
         }
 
         lightOff(color) {
-          this.colors[color].classList.remove("light");
+          this.colors[color].classList.remove('light');
         }
         onClickEvent() {
-          this.colors.celeste.addEventListener("click", this.chooseColor);
-          this.colors.violeta.addEventListener("click", this.chooseColor);
-          this.colors.naranja.addEventListener("click", this.chooseColor);
-          this.colors.verde.addEventListener("click", this.chooseColor);
+          this.colors.celeste.addEventListener('click', this.chooseColor);
+          this.colors.violeta.addEventListener('click', this.chooseColor);
+          this.colors.naranja.addEventListener('click', this.chooseColor);
+          this.colors.verde.addEventListener('click', this.chooseColor);
         }
 
         stopOnClickEvents() {
-          this.colors.celeste.removeEventListener("click", this.chooseColor);
-          this.colors.violeta.removeEventListener("click", this.chooseColor);
-          this.colors.naranja.removeEventListener("click", this.chooseColor);
-          this.colors.verde.removeEventListener("click", this.chooseColor);
+          this.colors.celeste.removeEventListener('click', this.chooseColor);
+          this.colors.violeta.removeEventListener('click', this.chooseColor);
+          this.colors.naranja.removeEventListener('click', this.chooseColor);
+          this.colors.verde.removeEventListener('click', this.chooseColor);
         }
 
         chooseColor(ev) {
@@ -225,10 +225,10 @@
           }
         }
         youWon() {
-          swal("You Won!", "", "success").then(this.inicializar);
+          swal('You Won!', '', 'success').then(this.inicializar);
         }
         youLost() {
-          swal("Oops", "You Lost!", "error").then(() => {
+          swal('Oops', 'You Lost!', 'error').then(() => {
             this.stopOnClickEvents();
             this.inicializar();
           });
